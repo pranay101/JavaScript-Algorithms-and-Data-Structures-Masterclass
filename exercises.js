@@ -56,32 +56,79 @@ function isvalidAnagram(string_1, string_2)
     }
     return true 
 }
+// -----------------------------------------------------------------------------------------------------------
+
+// ----------Multiple Pointer---------
+// Implement a function called countUniqueValues, which accepts a sorted array, and count the unique values
+// in the array. there can be negative numbers in the array, but it will be sorted.
 
 
-// -------------------------------------------test cases------------------------------------------------------
+// -------Solution - 1 -----
 
-if(isvalidAnagram('',''))
+// function countUniqueValues(array_1) 
+// {
+//     let key =0
+//     let object_to_return = {}
+//     for(key of array_1)
+//     {
+//        object_to_return[key] = ++object_to_return[key] || 1
+//        key++
+//     }
+//     return Object.keys(object_to_return).length
+// }
+
+
+
+// -------Solution - 2 -----
+
+function countUniqueValues(array_1) 
 {
-    console.log("Test passed");
-    if(!isvalidAnagram('aaz','zza'))//false
+    if (array_1.length === 0)
+        return 0
+    let start = 0, end =1
+    while(end < array_1.length)
+    {
+        if(array_1[start] !== array_1[end])
+        {
+            start = start+1
+            array_1[start] = array_1[end]
+        }
+        end++
+    }
+    return start+1
+}
+
+
+
+// -----------------------------------------------------------------------------------------------------------
+// -------------------------------------------test cases------------------------------------------------------
+function test_isvalidAnagram()
+{
+    if(isvalidAnagram('',''))
     {
         console.log("Test passed");
-        if(isvalidAnagram("anagram","nagaram")) //true
+        if(!isvalidAnagram('aaz','zza'))//false
         {
             console.log("Test passed");
-            if(!isvalidAnagram("rat","car")) //false
+            if(isvalidAnagram("anagram","nagaram")) //true
             {
                 console.log("Test passed");
-                if(!isvalidAnagram("awesome","awesom"))//true
+                if(!isvalidAnagram("rat","car")) //false
                 {
                     console.log("Test passed");
-                    if(isvalidAnagram("qwerty","qeywrt"))// true
+                    if(!isvalidAnagram("awesome","awesom"))//true
                     {
-                        console.log("Test passed"); 
-                        if(isvalidAnagram("texttwisttime","timetwisttext")) //true
-                            console.log("Test passed");
+                        console.log("Test passed");
+                        if(isvalidAnagram("qwerty","qeywrt"))// true
+                        {
+                            console.log("Test passed"); 
+                            if(isvalidAnagram("texttwisttime","timetwisttext")) //true
+                                console.log("Test passed");
+                            else
+                            console.log("Test Failed");
+                        }
                         else
-                        console.log("Test Failed");
+                            console.log("Test Failed");
                     }
                     else
                         console.log("Test Failed");
@@ -94,10 +141,37 @@ if(isvalidAnagram('',''))
         }
         else
             console.log("Test Failed");
-    }
+    } //true
+}
+
+function test_countUniqueValues()
+{
+    if(countUniqueValues([1,1,1,1,1,2])  === 2) 
+        console.log("Test passed")
     else
-        console.log("Test Failed");
-} //true
+        console.log("Test Failed")
+    if(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13])  === 7) 
+        console.log("Test passed")
+    else
+        console.log("Test Failed")
+    if(countUniqueValues([])  === 0)
+        console.log("Test passed")
+    else
+        console.log("Test Failed")
+    if(countUniqueValues([-2,-1,-1,0,1])  === 4) 
+        console.log("Test passed")
+    else
+        console.log("Test Failed")
+    if(countUniqueValues([1])  === 1) 
+        console.log("Test passed")
+    else
+        console.log("Test Failed")
+}
+// -----------------------------------------------------------------------------------------------------------
 
 
+
+
+// -----------------------------------------------------------------------------------------------------------
+test_countUniqueValues()
 // -----------------------------------------------------------------------------------------------------------
