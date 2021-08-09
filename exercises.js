@@ -1,5 +1,5 @@
 // -------------------------------------------Helper Functions------------------------------------------------------
-
+console.log("running")
 function isAlphaNumeric(char) {
 
     let code = char.charCodeAt(0);
@@ -83,48 +83,17 @@ function isvalidAnagram(string_1, string_2)
 
 function countUniqueValues(array_1) 
 {
-    if (array_1.length === 0)
-        return 0
     let start = 0, end =1
     while(end < array_1.length)
     {
-        if(array_1[start] !== array_1[end])
+        if(array_1[start] != array_1[end])
         {
-            start = start+1
+            start ++
             array_1[start] = array_1[end]
         }
-        end++
     }
-    return start+1
+    return start-1
 }
-
-
-
-// -----------------------------------------------------------------------------------------------------------
-
-
-// -----------------------------------------------------------------------------------------------------------
-
-
-// ----------Sliding Window---------
-// Write a function called maxSubarraySum which accepts an array of integers and a number called n.
-// The function should calculate the maximum sum of n consecutive elements in the array
-
-function maxSubarraySum(array,num)
-{
-    if(array.length < num) return null
-    let maxsum = 0
-    for(let i = 0; i < num; i++)
-        maxsum += array[i]
-    let temp = maxsum;
-    for(let i = num; i < array.length; i++)
-    {
-        temp = temp - array[i - num] + array[i] 
-        maxsum = Math.max(maxsum,temp)
-    }
-    return maxsum
-}
-
 
 
 
@@ -132,8 +101,6 @@ function maxSubarraySum(array,num)
 // -------------------------------------------test cases------------------------------------------------------
 function test_isvalidAnagram()
 {
-    console.log("---------------------------------------\n")
-    console.log("Testing isvalidAnagram function:")
     if(isvalidAnagram('',''))
     {
         console.log("Test passed");
@@ -172,15 +139,10 @@ function test_isvalidAnagram()
         else
             console.log("Test Failed");
     } //true
-    console.log("---------------------------------------\n")
 }
-
-// -----------------------------------------------------------------------------------------------------------
 
 function test_countUniqueValues()
 {
-    console.log("---------------------------------------\n")
-    console.log("Testing countUniqueValues function:")
     if(countUniqueValues([1,1,1,1,1,2])  === 2) 
         console.log("Test passed")
     else
@@ -197,39 +159,6 @@ function test_countUniqueValues()
         console.log("Test passed")
     else
         console.log("Test Failed")
-    if(countUniqueValues([1])  === 1) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-    console.log("---------------------------------------\n")
-}
-// -----------------------------------------------------------------------------------------------------------
-
-function test_maxSubarraySum() // 10
-{
-    console.log("---------------------------------------\n")
-    console.log("Testing maxSubarraySum function:")
-    if(maxSubarraySum([1,2,5,2,8,1,5],2)  === 10) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-    if(maxSubarraySum([1,2,5,2,8,1,5],4)  === 17) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-    if(maxSubarraySum([4,2,1,6],1)  === 6) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-    if(maxSubarraySum([4,2,1,6,2],4)  === 13) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-    if(maxSubarraySum([],4)  === null) 
-        console.log("Test passed")
-    else
-        console.log("Test Failed")
-        console.log("---------------------------------------\n")
 }
 // -----------------------------------------------------------------------------------------------------------
 
@@ -237,7 +166,5 @@ function test_maxSubarraySum() // 10
 
 
 // -----------------------------------------------------------------------------------------------------------
-test_isvalidAnagram()
 test_countUniqueValues()
-test_maxSubarraySum()
 // -----------------------------------------------------------------------------------------------------------
