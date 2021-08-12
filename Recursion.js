@@ -61,7 +61,7 @@ function collectOddvalues(arr)
     let newarr = []
     if( arr.length === 0)
      return newarr
-     
+
     if(arr[0] % 2 !== 0)
         newarr.push(arr[0])
 
