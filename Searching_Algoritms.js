@@ -44,9 +44,40 @@ function binary_search(arr,element)
 // --------------------------------------------------------------------------------------------------------------
 
 
+
+
+// -----------------------------------------Naive String Searching-------------------------------------------------
+
+function string_search(longString,shortString)
+{
+    let count = 0
+    for (let index = 0; index < longString.length-1; index++) {
+        let temp = index
+        if (longString[temp] === shortString[0]) {
+            for(let element = 0; element < shortString.length; element++){
+                if (shortString[element] === longString[temp])
+                { 
+                    temp ++
+                    if (element === shortString.length-1)
+                        count++
+                }
+                else break    
+            };
+        };
+    }
+    return count
+    
+}
+
+// --------------------------------------------------------------------------------------------------------------
+
+
 // console.log(linear_search([8,6,3,2,6,8,3],2))
 // console.log(linear_search([8,6,3,2,6,8,3],1))
 
-console.log(binary_search([2,3,5,6,7,8,18],2))
-console.log(binary_search([2,3,5,6,7,8,18],18))
-// console.log(binary_search([2,3,5,6,7,8,18],4))
+// console.log(binary_search([2,3,5,6,7,8,18],2))
+// console.log(binary_search([2,3,5,6,7,8,18],18))
+
+console.log(string_search("wtfsomgndnsomghst","ndn"))
+console.log(string_search("ppmpsppppspppppppsmpppppspppppptp","pp"))
+
