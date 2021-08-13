@@ -78,6 +78,6 @@ function string_search(longString,shortString)
 // console.log(binary_search([2,3,5,6,7,8,18],2))
 // console.log(binary_search([2,3,5,6,7,8,18],18))
 
-console.log(string_search("wtfsomgndnsomghst","ndn"))
-console.log(string_search("ppmpsppppspppppppsmpppppspppppptp","pp"))
+console.log(string_search("wtfsomgndn somghst","ndn"))
+console.log(string_search("bb","bb"))
 
