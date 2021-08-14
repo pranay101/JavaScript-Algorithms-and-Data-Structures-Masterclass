@@ -48,5 +48,7 @@ function earlyExit_bubbleSort(array){
     return array
 }
 
-
-earlyExit_bubbleSort([8,1,2,3,4,5,6,7])
+// ----------------------------------------------- Function calls------------------------------------------------
+// earlyExit_bubbleSort([8,1,2,3,4,5,6,7])
+// naivebubbleSort([8,1,2,3,4,5,6,7])
+// bubbleSort([8,1,2,3,4,5,6,7])
