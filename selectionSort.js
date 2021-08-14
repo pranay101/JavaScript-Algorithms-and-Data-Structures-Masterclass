@@ -8,7 +8,7 @@ function naiveSelectionSort(array)
         for (let j = i+1; j < array.length; j++) {
             if (array[small] > array[j]) small = j
         }
-        [array[i],array[small] ]= [array[small],array[i]]
+        if (i !== small) [array[small], array[i]] = [array[i], array[small]]
     }
     console.log(array)
 }
