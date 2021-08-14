@@ -27,4 +27,26 @@ function bubbleSort(array){
 }
 
 
-bubbleSort([11,10,9,8,7,6,5,4,3,2,1,0])
+
+// -------------------------------------------Early Exit Bubble sort ------------------------------------------
+function earlyExit_bubbleSort(array){
+    console.log(array)
+    let noSwaps;
+    for (let index = array.length; index > 0 ; index--) {
+        noSwaps = true
+        for (let jndex = 0; jndex <= index-1; jndex++) 
+        {
+            console.log(array,"||",array[jndex],array[jndex+1])
+            if (array[jndex] > array[jndex+1]) 
+            {
+                [array[jndex],array[jndex+1]] = [array[jndex+1],array[jndex]]
+                noSwaps = false
+            }         
+        }
+        if(noSwaps) break
+    }
+    return array
+}
+
+
+earlyExit_bubbleSort([8,1,2,3,4,5,6,7])
