@@ -1,19 +1,25 @@
 // ---------------------------------------Helper Function------------------------------------------------
-function pivot(array)
+function pivot(array,start=0, end = array.length-1)
 {
-    pivot_point = 0
-    pivot_point_count = 0
-    pivot_point_swap = 1
-    for (let i = 1; i < array.length; i++) {
-        if (array[i] < array[pivot_point]){
+    pivot_point_count = start
+    for (let i = start+1; i <= end; i++) {
+        if (array[i] < array[start]){
             pivot_point_count++;
-            [array[i], array[pivot_point_swap]] = [array[pivot_point_swap], array[i]]
-            pivot_point_swap++
+            [array[i], array[pivot_point_count]] = [array[pivot_point_count], array[i]]
         }
     }
-    [array[pivot_point], array[pivot_point_count]] = [array[pivot_point_count], array[pivot_point]]
-    console.log(array)
+    [array[start], array[pivot_point_count]] = [array[pivot_point_count], array[start]]
     return pivot_point_count
 }
 
-console.log(pivot([5,2,1,8,4,7,6,3]))
+
+function quickSort(array,left=0,right= array.length-1) {
+    if (left < right) {
+        let pivotIndex = pivot(array,left,right)
+        quickSort(array,left,pivotIndex-1)
+        quickSort(array,pivotIndex+1,right)
+    }
+    return array
+    
+}
+console.log(quickSort([444,222,1,2222,4,257,9222,3]))
