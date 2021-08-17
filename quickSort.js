@@ -13,6 +13,8 @@ function pivot(array,start=0, end = array.length-1)
 }
 
 
+
+// ---------------------------------------Main Function------------------------------------------------
 function quickSort(array,left=0,right= array.length-1) {
     if (left < right) {
         let pivotIndex = pivot(array,left,right)
@@ -22,4 +24,8 @@ function quickSort(array,left=0,right= array.length-1) {
     return array
     
 }
+
+
+
+// ---------------------------------------Function Call------------------------------------------------
 console.log(quickSort([444,222,1,2222,4,257,9222,3]))
