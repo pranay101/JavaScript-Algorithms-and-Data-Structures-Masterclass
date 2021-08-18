@@ -51,6 +51,25 @@ class SingleLinkedList{
             temp = temp.next
         }
     }
+    pop()
+    {
+        if (this.length <= 0) {
+            console.log("List is empty!!")
+            return;
+        }
+        else{
+            let temp = this.head;
+            let pre;
+            while (temp.next !== null) {
+                temp = temp.next
+                pre = temp
+            }
+            this.tail = pre
+            this.tail.next = null
+            this.length--
+            return this
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
@@ -58,4 +77,10 @@ list.push(20)
 list.push(30)
 list.push(40)
 list.push(50)
+list.traverse()
+list.pop()
+list.pop()
+list.pop()
+list.pop()
+list.pop()
 list.traverse()
