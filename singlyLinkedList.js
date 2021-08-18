@@ -43,10 +43,19 @@ class SingleLinkedList{
         this.length++;
         return this
     }
+    traverse()
+    {
+        let temp = this.head;
+        while (temp){
+            console.log(temp.value)
+            temp = temp.next
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
 list.push(20)
 list.push(30)
-console.log(list.head);
-console.log(list.tail);
+list.push(40)
+list.push(50)
+list.traverse()
