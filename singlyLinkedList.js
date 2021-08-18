@@ -20,6 +20,33 @@ class Node{
 
 
 
+class SingleLinkedList{
+    constructor(){
+        this.head = null
+        this.tail = null
+        this.length = 0
+    }
 
-// ---------------------------------------Helper Function------------------------------------------------
-// ---------------------------------------H
+    push(data)
+    {
+        let newNode = new Node(data)
+        if(!this.head)
+        {
+            this.head = newNode;
+            this.tail = this.head
+        }
+        else
+        {
+            this.tail.next = newNode
+            this.tail = newNode
+        }
+        this.length++;
+        return this
+    }
+}
+
+let list =  new SingleLinkedList()
+list.push(20)
+list.push(30)
+console.log(list.head);
+console.log(list.tail);
