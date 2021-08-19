@@ -90,17 +90,22 @@ class SingleLinkedList{
             return temp
         }
     }
+    unshift(value)
+    {
+        let newNode = new Node(value)
+        if (this.length === 0) {
+            this.head = newNode
+            this.tail = newNode
+            this.length++
+            return list;
+        }
+        else{
+            newNode.next = this.head;
+            this.head = newNode
+            this.length++
+            return list
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
-list.push(20)
-list.push(30)
-list.push(40)
-list.push(50)
-list.traverse()
-list.pop()
-list.pop()
-list.pop()
-list.pop()
-list.pop()
-list.traverse()
