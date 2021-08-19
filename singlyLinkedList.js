@@ -74,6 +74,22 @@ class SingleLinkedList{
             return temp
         }
     }
+    shift()
+    {
+        if (this.length === 0) {
+            return undefined
+        }
+        else{
+            let temp = this.head;
+            this.head = temp.next;
+            this.length--
+            if (this.length === 0) {
+                this.head = null
+                this.tail = null
+            }
+            return temp
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
