@@ -67,6 +67,10 @@ class SingleLinkedList{
             this.tail = pre
             this.tail.next = null
             this.length--
+            if (this.length === 0) {
+                this.head = null
+                this.tail = null
+            }
             return temp
         }
     }
