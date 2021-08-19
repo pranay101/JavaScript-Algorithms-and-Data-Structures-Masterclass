@@ -97,13 +97,28 @@ class SingleLinkedList{
             this.head = newNode
             this.tail = newNode
             this.length++
-            return list;
+            return this;
         }
         else{
             newNode.next = this.head;
             this.head = newNode
             this.length++
-            return list
+            return this
+        }
+    }
+    get(index)
+    {
+        if (index < 0 || this.length <=0) {
+            return undefined
+        }
+        else{
+            let temp = this.head
+            let temp_count = 0
+            while (temp_count !== index) {
+                temp = temp.next
+                temp_count++
+            }
+            return temp.value
         }
     }
 }
