@@ -55,19 +55,19 @@ class SingleLinkedList{
     {
         if (this.length <= 0) {
             console.log("List is empty!!")
-            return;
+            return undefined;
         }
         else{
             let temp = this.head;
-            let pre;
-            while (temp.next !== null) {
-                temp = temp.next
+            let pre = temp;
+            while (temp.next) {
                 pre = temp
+                temp = temp.next
             }
             this.tail = pre
             this.tail.next = null
             this.length--
-            return this
+            return temp
         }
     }
 }
