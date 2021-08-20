@@ -131,6 +131,36 @@ class SingleLinkedList{
         console.log("An error occured!!!");
         return false
     }
+    insert(index,val)
+    {
+        if (index < 0 || index > this.length) {
+            console.log("Invalid Index!!")
+            return false
+        }
+        if (index === this.length) {
+            this.push(val)
+            return true
+        }
+        if (index === 0) {
+            this.unshift(val)
+            return true
+        }
+        else{
+            let tempIndex = this.get(index-1);
+            if (tempIndex)
+            {    let newNode = new Node(val);
+                newNode.next = tempIndex.next;
+                tempIndex.next = newNode;
+                this.length++
+                return true
+            }
+            else
+            {
+                console.log("An error Occured!!");
+                return false;
+            }
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
