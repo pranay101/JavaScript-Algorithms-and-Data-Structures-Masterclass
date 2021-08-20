@@ -109,7 +109,7 @@ class SingleLinkedList{
     get(index)
     {
         if (index < 0 || this.length <=0) {
-            return undefined
+            return null
         }
         else{
             let temp = this.head
@@ -118,8 +118,18 @@ class SingleLinkedList{
                 temp = temp.next
                 temp_count++
             }
-            return temp.value
+            return temp
         }
+    }
+    set(index,value)
+    {
+        let foundIndex = this.get(index)
+        if (foundIndex) {
+            foundIndex.value = value
+            return true
+        }
+        console.log("An error occured!!!");
+        return false
     }
 }
 
