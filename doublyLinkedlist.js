@@ -30,16 +30,34 @@ class doublyLinkedlist{
         if (this.length === 0 ) {
             this.head = newNode;
             this.tail = newNode
-            this.length++
-            return this
         }
-        this.tail.next = newNode;
-        newNode.prev = this.tail
-        this.tail = newNode;;
+        else{
+            this.tail.next = newNode;
+            newNode.prev = this.tail
+            this.tail = newNode;;
+        }
         this.length++
         return this
     }
+    pop()
+    {
+        if(!this.head) return undefined
+        let temp = this.tail;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        this.length--;
+        return temp;
+    }
 }
-
-
 let list =  new doublyLinkedlist
+
+list.push(10)
+list.push(20)
+list.push(30)
+console.log(list)
+list.pop()
+console.log(list)
