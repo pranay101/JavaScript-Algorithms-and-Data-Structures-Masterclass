@@ -175,8 +175,8 @@ class SingleLinkedList{
         }
         else{
             let tempIndexLower = this.get(index-1);
-            let tempIndexUpper = this.get(index+1);
-            tempIndexLower.next = tempIndexUpper
+            let tempIndexUpper = tempIndexLower.next
+            tempIndexLower.next = tempIndexUpper.next
             this.length--
             return true
         }
