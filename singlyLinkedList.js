@@ -161,6 +161,26 @@ class SingleLinkedList{
             }
         }
     }
+    remove(index){
+        if (index > this.length || index < 0) {
+            return false
+        }
+        if (index === this.length) {
+            this.pop()
+            return true
+        }
+        if (index ===  0) {
+            this.shift()
+            return true
+        }
+        else{
+            let tempIndexLower = this.get(index-1);
+            let tempIndexUpper = this.get(index+1);
+            tempIndexLower.next = tempIndexUpper
+            this.length--
+            return true
+        }
+    }
 }
 
 let list =  new SingleLinkedList()
