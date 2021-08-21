@@ -181,6 +181,26 @@ class SingleLinkedList{
             return true
         }
     }
+    reverse(){
+        let node = this.head;
+        this.head =this.tail;
+        this.tail = node;
+        let  next, prev = null;
+        for (let index = 0; index < this.length; index++){
+            next = node.next
+            node.next = prev;
+            prev = node
+            node = next;
+        }
+        return true
+    }
 }
 
 let list =  new SingleLinkedList()
+
+
+list.push(10)
+list.push(20)
+list.push(30)
+list.reverse()
+list.traverse()
