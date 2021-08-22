@@ -101,7 +101,36 @@ class doublyLinkedlist{
         }
         this.length++
         return this
-
+    }
+    get(index){
+        if (index >= this.length || index < 0) {
+            console.log("Invaild index!")
+            return undefined
+        }
+        if (index > this.length/2) {
+            let temp = this.tail;
+            let i = this.length;
+            while(true && i >= this.length/2)
+            {
+                if (i === index) {
+                    return temp.value
+                }
+                i-- 
+                temp = temp.prev;
+            }
+        }
+        else{
+            let temp = this.head;
+            let i = 0
+            while(i <= this.length/2)
+            {
+                if (i === index) {
+                    return temp.value
+                }
+                i++
+                temp = temp.next;
+            }
+        }
     }
 }
 let list =  new doublyLinkedlist
