@@ -140,5 +140,29 @@ class doublyLinkedlist{
         }
         return false;
     }
+    insert(index,value){
+        if (index > this.length || index < 0) {
+            return false
+        }
+        if (index === this.length) {
+            this.push(value)
+            return true
+        }
+        if (index === 0) {
+            this.unshift(value)
+            return true
+        }
+        else{
+            let temp = this.get(index-1)
+            let newNode = new Node(value);
+            let nextNode = temp.next;
+            temp.next = newNode;
+            newNode.prev = temp;
+            newNode.next = nextNode;
+            nextNode.prev = newNode
+            this.length++
+            return true
+        }
+    }
 }
 let list =  new doublyLinkedlist
