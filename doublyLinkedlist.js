@@ -13,7 +13,7 @@
 // ---------------------------------------Base Code------------------------------------------------------
 class Node{
     constructor(value){
-        this.val = value;
+        this.value = value;
         this.next = null;
         this.prev = null;
     }
@@ -58,18 +58,29 @@ class doublyLinkedlist{
         }
         else{
             let temp = this.head
-            while (temp){
+            for (let i = 0; i < this.length; i++){
                 console.log(temp.value);
                 temp = temp.next;
             }
         }
     }
+    shift(){
+        if (!this.length === 0) {
+            console.log("Empty list!!");
+            return undefined
+        }
+        let oldHead = this.head;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null
+        }
+        else{
+            this.head = this.head.next;
+            this.prev = null
+            oldHead.nex = null
+        }
+        this.length--
+        return oldHead;
+    }
 }
 let list =  new doublyLinkedlist
-
-list.push(10)
-list.push(20)
-list.push(30)
-console.log(list)
-list.pop()
-console.log(list)
