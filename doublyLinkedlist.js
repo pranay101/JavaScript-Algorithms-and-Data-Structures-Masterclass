@@ -113,7 +113,7 @@ class doublyLinkedlist{
             while(true && i >= this.length/2)
             {
                 if (i === index) {
-                    return temp.value
+                    return temp
                 }
                 i-- 
                 temp = temp.prev;
@@ -125,7 +125,7 @@ class doublyLinkedlist{
             while(i <= this.length/2)
             {
                 if (i === index) {
-                    return temp.value
+                    return temp
                 }
                 i++
                 temp = temp.next;
