@@ -49,8 +49,11 @@ class doublyLinkedlist{
             this.head = null;
             this.tail = null;
         }
-        this.tail = this.tail.prev;
-        this.tail.next = null;
+        else{
+            this.tail = temp.prev;
+            this.tail.next = null;
+            temp.prev = null;
+        }
         this.length--;
         return temp;
     }
