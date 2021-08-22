@@ -190,3 +190,10 @@ class doublyLinkedlist{
     }
 }
 let list =  new doublyLinkedlist
+
+
+
+// --------------------------------------------Recap------------------------------------------------------
+// doubly linked list are almost identical to singly linked list except there is an additional pointer to previous Node.
+// better than singly linked list for finding nodes and can be done in half the time!
+// however, they do take up more memory considering the extra pointer
