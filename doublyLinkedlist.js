@@ -41,7 +41,9 @@ class doublyLinkedlist{
     }
     pop()
     {
-        if(!this.head) return undefined
+        if(!this.head) {
+            console.log("Empty List!!");
+            return undefined}
         let temp = this.tail;
         if (this.length === 1) {
             this.head = null;
@@ -81,6 +83,22 @@ class doublyLinkedlist{
         }
         this.length--
         return oldHead;
+    }
+    unshift(value){
+        let newNode = new Node(value);
+        if (this.length === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else
+        {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        this.length++
+        return this
+
     }
 }
 let list =  new doublyLinkedlist
