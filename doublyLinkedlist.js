@@ -132,5 +132,13 @@ class doublyLinkedlist{
             }
         }
     }
+    set(index,value){
+        let temp = this.get(index)
+        if (temp !== null) {
+            temp.value = value
+            return true
+        }
+        return false;
+    }
 }
 let list =  new doublyLinkedlist
