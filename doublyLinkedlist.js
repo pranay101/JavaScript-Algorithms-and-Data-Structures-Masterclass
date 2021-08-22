@@ -52,6 +52,18 @@ class doublyLinkedlist{
         this.length--;
         return temp;
     }
+    traverse(){
+        if (!this.head) {
+            console.log("Empty list!!")
+        }
+        else{
+            let temp = this.head
+            while (temp){
+                console.log(temp.value);
+                temp = temp.next;
+            }
+        }
+    }
 }
 let list =  new doublyLinkedlist
 
