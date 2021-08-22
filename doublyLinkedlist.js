@@ -182,6 +182,8 @@ class doublyLinkedlist{
             let temp = this.get(index);
             temp.prev.next = temp.next;
             temp.next.prev = temp.prev;
+            temp.next = null;
+            temp.prev = null;
             this.length--
             return temp;
         }
