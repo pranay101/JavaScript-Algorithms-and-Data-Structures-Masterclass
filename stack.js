@@ -62,3 +62,12 @@ Stack.pop()
 Stack.pop()
 Stack.pop()
 console.log(Stack);
+
+
+
+// ---------------------------------------Recap------------------------------------------------------
+// time complexity
+// insertion - O(1)
+// removal - O(1)
+// Access - O(N)
+// searching - O(N)
