@@ -42,6 +42,18 @@ class BinarySearchTree{
     constructor() {
         this.root = null
     }
+    insert(value){
+        let newNode = new Node(value);
+        if (!this.root) {
+            this.root = newNode;
+            return this
+        }
+        else{
+            if (condition) {
+                
+            }
+        }
+    }
 }
 
 const tree = new BinarySearchTree();
