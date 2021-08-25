@@ -36,6 +36,7 @@ class  Node{
         this.value = value;
         this.left = null;
         this.right = null;
+        this.frequency = 0
     }
 }
 class BinarySearchTree{
@@ -49,9 +50,59 @@ class BinarySearchTree{
             return this
         }
         else{
-            if (condition) {
-                
+            let temp = this.root;
+            while (true) {
+                if (value === temp.value) {
+                    temp.frequency++;
+                    return this
+                }
+                if (value > temp.value) {
+                    if (!temp.right) {
+                        temp.right = newNode;
+                        return this
+                    }
+                    else{
+                        temp = temp.right;
+                    }
+                }   
+
+                if (value < temp.value) {
+                    if (!temp.left) {
+                        temp.left = newNode;
+                        return this
+                    }
+                    else{
+                        temp = temp.left;
+                    }
+                }   
             }
+        }
+    }
+    find(value){
+        if (!this.root) {
+            console.log("Empty tree!!");
+            return undefined;
+        }
+        else if(this.root.value === value){
+            console.log("Found value!!");
+            return true
+        }
+        else{
+            if (value > this.root.value)
+                var temp = this.root.right
+            else
+                var temp =  this.root.left
+           
+            while (temp !== null) {
+                if (temp.value === value) {
+                    return true
+                }
+                else if(temp.value > value)
+                    temp = temp.left
+                else
+                    temp  = temp.right
+            }
+            return false
         }
     }
 }
