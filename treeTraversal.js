@@ -87,7 +87,7 @@ class BinarySearchTree{
             this.insert(element)
         });
     }
-    breadthFirstSearch(){
+    BFS(){
         var queue = [], 
             visited = [],
             currentNode = this.root;
@@ -101,6 +101,22 @@ class BinarySearchTree{
                 queue.push(currentNode.right) 
         }
         return visited;
+    }
+    DFSPreOrder(){
+        let data = [];
+        let currentNode = this.root;
+        function traverse(node) {
+            data.push(node.value)
+            if (node.left) {
+                traverse(node.left)
+            }
+            if (node.right) {
+                traverse(node.right)
+            }
+            return
+        }
+        traverse(currentNode)
+        return data;
     }
 }
 
