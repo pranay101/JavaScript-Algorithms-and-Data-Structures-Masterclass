@@ -87,7 +87,21 @@ class BinarySearchTree{
             this.insert(element)
         });
     }
+    breadthFirstSearch(){
+        var queue = [], 
+            visited = [],
+            currentNode = this.root;
+        queue.push(currentNode);
+        while (queue.length){
+            currentNode = queue.shift();
+            visited.push(currentNode.value)
+            if (currentNode.left)
+                queue.push( currentNode.left)
+            if (currentNode.right)
+                queue.push(currentNode.right) 
+        }
+        return visited;
+    }
 }
 
 const tree = new BinarySearchTree();
-tree.addvalues()
