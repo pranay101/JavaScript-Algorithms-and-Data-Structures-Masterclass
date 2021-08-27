@@ -118,6 +118,8 @@ class BinarySearchTree{
         traverse(currentNode)
         return data;
     }
+// output : [ 10, 6, 3, 8, 15, 20 ]
+
     DFSPostOrder(){
         let data = [];
         let currentNode = this.root;
@@ -133,6 +135,25 @@ class BinarySearchTree{
         traverse(currentNode)
         return data;
     }
+// output : [ 3, 8, 6, 20, 15, 10 ]
+
+
+    DFSInOrder(){
+        let data = [];
+        let currentNode = this.root;
+        function traverse(node) {
+            if (node.left) {
+                traverse(node.left)
+            }
+            data.push(node.value)
+            if (node.right) {
+                traverse(node.right)
+            }
+        }
+        traverse(currentNode)
+        return data;
+    }
+// output : [ 3, 6, 8, 10, 15, 20 ]
 }
 
 const tree = new BinarySearchTree();
