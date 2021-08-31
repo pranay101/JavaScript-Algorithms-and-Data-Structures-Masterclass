@@ -42,8 +42,6 @@ class MaxBinaryHeap{
             }
             else 
                 break;
- 
-            
         }
     }
     extractMax(){
