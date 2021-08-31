@@ -101,3 +101,19 @@ console.log(pq.Enqueue("glass in foot",3))
 // console.log(pq.Enqueue(10335,1))
 // console.log(pq.Enqueue(1485,8))
 // console.log(pq.Enqueue(144,0))
+
+
+
+// ---------------------------------------Recap------------------------------------------------------
+// time complexity:
+// insertion : O(logn)
+// removal: O(logn)
+// searching: O(n)
+
+// Binary Heaps are very useful data structures for sorting, and implementing other data 
+// structures like priority queues
+
+// Binary Heaps are either MaxBinaryHeaps or MinBinaryHeaps with parents either being smaller 
+// or larger than their children
+
+// With just a little bit of math, we can represent heaps using arrays!
