@@ -48,14 +48,56 @@ class priorityQueue{
         }
 
     }
-    // Dequeue(){
+    Dequeue(){
+        let deletedNode = this.values[0];
+        let end = this.values.pop()
+        if (this.values.length > 0) {
+            [this.values[0],end] = [end,this.values[0]]
+            this.bubbleDown()
+        }
+        return deletedNode
+    }
+    bubbleDown(){
+        let parentIndex = 0
+        let leftIndex, rightIndex;
+        let length  = this.values.length;
+        while (true) {
+            let swap = null;
+            leftIndex  = 2 * parentIndex + 1
+            rightIndex  = 2 * parentIndex + 2
+            if (leftIndex < length ) {
+                if (this.values[parentIndex].priority > this.values[leftIndex].priority ) {
+                    swap = leftIndex
+                }
+            }
+            if (rightIndex < length){
+                if(
+                    swap === null && this.values[parentIndex].priority > this.values[rightIndex].priority ||
+                    swap !== null && this.values[leftIndex].priority > this.values[rightIndex].priority
+                )
+                swap = rightIndex
+            }
+            if (swap === null) {
+                break
+            }
+            [this.values[swap],this.values[parentIndex]] = [this.values[parentIndex],this.values[swap]]
+            parentIndex = swap;
+        }
 
-    // }
+    }
 }
 
 let pq = new priorityQueue();
-console.log(pq.Enqueue(105,5))
-console.log(pq.Enqueue(15,2))
-console.log(pq.Enqueue(10335,1))
-console.log(pq.Enqueue(1485,8))
-console.log(pq.Enqueue(144,0))
+
+
+console.log(pq.Enqueue("common cold",5))
+console.log(pq.Enqueue("gunshot wound", 1))
+console.log(pq.Enqueue("high fever",4))
+console.log(pq.Enqueue("broken arm",2))
+console.log(pq.Enqueue("glass in foot",3))
+
+// console.log(pq.Enqueue(105,5))
+// console.log(pq.Enqueue(15,2))
+// console.log(pq.Enqueue(10335,1))
+// console.log(pq.Enqueue(1485,8))
+// console.log(pq.Enqueue(144,0))
