@@ -33,7 +33,7 @@ class MaxBinaryHeap{
         let index = this.values.length - 1;
         let swapIndex;
         while(index > 0){
-            swapIndex = Math.floor((index-1)/2);
+            swapIndex = Math.floor((index-1)/2); 
             if(this.values[index] > this.values[swapIndex])
             {
                 console.log("swap");
@@ -46,6 +46,54 @@ class MaxBinaryHeap{
             
         }
     }
+    extractMax(){
+        let head = 0
+        let deletedNode = this.values[head];
+        let end = this.values.pop()
+        if (this.values.length > 0) {
+            [this.values[head],end] = [end,this.values[head]]
+            this.bubbleDown()
+        }
+        return deletedNode
+    }
+    bubbleDown(){
+        let parentIndex = 0;
+        let leftIndex = parentIndex,rightIndex=parentIndex;
+        while (true) {
+            leftIndex = parentIndex*2 + 1
+            rightIndex = parentIndex*2 + 2
+            let swap = null;
+            if (leftIndex < this.values.length) {
+                if (this.values[leftIndex]> this.values[parentIndex]){
+                    swap = leftIndex
+                }
+            }
+            if (rightIndex < this.values.length) {
+                if ( 
+                    swap === null && this.values[rightIndex]> this.values[parentIndex] ||
+                    swap !== null && this.values[rightIndex]> this.values[leftIndex] 
+                    ) {
+                    swap = rightIndex
+                }
+            } 
+            if (swap === null) {
+                break
+            }
+            let temp = this.values[parentIndex] 
+            this.values[parentIndex] = this.values[swap]
+            this.values[swap] = temp
+            parentIndex = swap;
+        }
+    }
 }
 
 let heap = new MaxBinaryHeap;
+heap.insert(41);
+heap.insert(39);
+heap.insert(33);
+heap.insert(18);
+heap.insert(27);
+heap.insert(12);
+heap.insert(55);
+console.log((heap.extractMax()))
+console.log((heap.extractMax()))
