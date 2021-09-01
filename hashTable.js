@@ -94,3 +94,18 @@ console.log(hashTable.set("pranay", 36))
 console.log(hashTable.set("prajapati", 46))
 console.log(hashTable.set("prajatbttpati", 46))
 console.log(hashTable.get("hellco"))
+
+// ---------------------------------------Recap------------------------------------------------------
+// time complexity:
+// insertion : O(1)
+// removal: O(1)
+// Access: O(1)
+
+// Hash tables are collections of key-value pairs
+// Hash tables can find values quickly given a key
+// Hash tables can add new key-values quickly
+// Hash tables store data in a large array, and work by hashing the keys
+// A good hash should be fast, distribute keys uniformly, and be deterministic
+// Separate chaining and linear probing are two strategies used to deal with 
+// two keys that hash to the same index
+// When in doubt, use a hash table!
