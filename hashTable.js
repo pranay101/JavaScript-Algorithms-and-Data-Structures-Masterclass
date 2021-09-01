@@ -59,6 +59,19 @@ class HashTable {
         }
         return undefined;
     }
+    values() {
+        let valueArray = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    if (!valueArray.includes(this.keyMap[i][j][1]))
+                        valueArray.push(this.keyMap[i][j][1])
+                }
+            }
+
+        }
+        return valueArray;
+    }
 }
 
 let hashTable = new HashTable;
