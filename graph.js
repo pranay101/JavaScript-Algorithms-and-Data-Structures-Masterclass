@@ -37,30 +37,35 @@
 
 
 // ---------------------------------------Base Code------------------------------------------------------
-class Graph{
-    constructor(){
-        this.adjacencyList = {};
+class Graph {
+    constructor() {
+        this.adjacencyList = { };
     }
-    addVertex(value){
-        if ( !this.adjacencyList[value])
+    addVertex(value) {
+        if (!this.adjacencyList[value])
             this.adjacencyList[value] = [];
-    
-        return this 
+
+        return this
     }
-    addEdge(vertex1,vertex2){
+    addEdge(vertex1, vertex2) {
         this.adjacencyList[vertex1].push(vertex2)
         this.adjacencyList[vertex2].push(vertex1)
         return this
     }
-    removeEdge(vertex1,vertex2){
-        this.adjacencyList[vertex1].pop(vertex2)
-        this.adjacencyList[vertex2].pop(vertex1)
+    removeEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+            v => v !== vertex2
+        );
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+            v => v !== vertex1
+        );
         return this
     }
-    removeVertex(Vertex){
-        this.adjacencyList.forEach(element => {
-            element.pop(Vertex)
-        });
+    removeVertex(vertex) {
+        while(this.adjacencyList[vertex].length){
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
+        }
         delete this.adjacencyList[vertex]
         return this
     }
@@ -75,11 +80,11 @@ console.log(g.addVertex("Delhi"));
 console.log(g.addVertex("Paris"));
 console.log(g.addVertex("Barcelona"));
 
-console.log(g.addEdge("Tokoyo","Newyork"));
-console.log(g.addEdge("Delhi","Tokoyo"));
-console.log(g.addEdge("Paris","Barcelona"));
-console.log(g.addEdge("Paris","Tokoyo"));
-console.log(g.addEdge("Delhi","Tokoyo"));
-console.log(g.addEdge("Delhi","Paris"));
+console.log(g.addEdge("Tokoyo", "Newyork"));
+console.log(g.addEdge("Delhi", "Tokoyo"));
+console.log(g.addEdge("Paris", "Barcelona"));
+console.log(g.addEdge("Paris", "Tokoyo"));
+console.log(g.addEdge("Delhi", "Tokoyo"));
+console.log(g.addEdge("Delhi", "Paris"));
 
-console.log(g.removeVertex("Tokoyo"));
+console.log(g.removeVertex("Paris"));
