@@ -48,9 +48,20 @@ class Graph{
         return this 
     }
     addEdge(vertex1,vertex2){
-        this.adjacencyList
         this.adjacencyList[vertex1].push(vertex2)
         this.adjacencyList[vertex2].push(vertex1)
+        return this
+    }
+    removeEdge(vertex1,vertex2){
+        this.adjacencyList[vertex1].pop(vertex2)
+        this.adjacencyList[vertex2].pop(vertex1)
+        return this
+    }
+    removeVertex(Vertex){
+        this.adjacencyList.forEach(element => {
+            element.pop(Vertex)
+        });
+        delete this.adjacencyList[vertex]
         return this
     }
 }
@@ -60,6 +71,15 @@ let g = new Graph;
 console.log(g.addVertex("Tokoyo"));
 console.log(g.addVertex("Newyork"));
 console.log(g.addVertex("London"));
+console.log(g.addVertex("Delhi"));
+console.log(g.addVertex("Paris"));
+console.log(g.addVertex("Barcelona"));
 
 console.log(g.addEdge("Tokoyo","Newyork"));
-console.log(g.addEdge("Tokoyo","London"));
+console.log(g.addEdge("Delhi","Tokoyo"));
+console.log(g.addEdge("Paris","Barcelona"));
+console.log(g.addEdge("Paris","Tokoyo"));
+console.log(g.addEdge("Delhi","Tokoyo"));
+console.log(g.addEdge("Delhi","Paris"));
+
+console.log(g.removeVertex("Tokoyo"));
