@@ -37,3 +37,18 @@
 
 
 // ---------------------------------------Base Code------------------------------------------------------
+class Graph{
+    constructor(){
+        this.adjacencyList = {};
+    }
+    addVertex(value){
+        if ( !this.adjacencyList[value])
+            this.adjacencyList[value] = [];
+    
+        return this 
+    }
+}
+
+let g = new Graph;
+
+console.log(g.addVertex("tokoyo"));
