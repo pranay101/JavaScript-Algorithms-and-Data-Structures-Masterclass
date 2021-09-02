@@ -47,8 +47,19 @@ class Graph{
     
         return this 
     }
+    addEdge(vertex1,vertex2){
+        this.adjacencyList
+        this.adjacencyList[vertex1].push(vertex2)
+        this.adjacencyList[vertex2].push(vertex1)
+        return this
+    }
 }
 
 let g = new Graph;
 
-console.log(g.addVertex("tokoyo"));
+console.log(g.addVertex("Tokoyo"));
+console.log(g.addVertex("Newyork"));
+console.log(g.addVertex("London"));
+
+console.log(g.addEdge("Tokoyo","Newyork"));
+console.log(g.addEdge("Tokoyo","London"));
