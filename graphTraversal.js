@@ -77,6 +77,26 @@ class Graph {
         }
         return resultArray
     }
+    BFSIterative(start){
+        var queue = [start];
+        var resultArray = [];
+        var visitedNode = {};
+        let currentVertex;
+        visitedNode[start] = true;
+        while (queue.length) {
+            currentVertex = queue.shift();
+            resultArray.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach(element => {
+                if(!visitedNode[element]){
+                    visitedNode[element] = true;
+                    queue.push(element); 
+                }
+            })
+        }
+        return resultArray;
+
+
+    }
 }
 
 let g = new Graph;
@@ -99,3 +119,4 @@ console.log(g.addEdge("E", "F"));
 
 console.log(g.DFSRecursive("A"));
 console.log(g.DFSIterative("A"));
+console.log(g.BFSIterative("A"));
