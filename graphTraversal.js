@@ -56,6 +56,27 @@ class Graph {
         DFS(start)
         return resultArray;
     }
+
+    DFSIterative(start){
+        var stack = []
+        var resultArray = [];
+        var visitedNode = {};
+        stack.push(start)
+        visitedNode[start] = true;
+        while(stack.length) {
+            let vertex = stack.pop();
+            resultArray.push(vertex);
+            this.adjacencyList[vertex].forEach(element => {
+                if(!visitedNode[element]){
+                    visitedNode[element] = true;
+                    stack.push(element);      
+                }
+                
+            });
+            
+        }
+        return resultArray
+    }
 }
 
 let g = new Graph;
@@ -77,3 +98,4 @@ console.log(g.addEdge("D", "F"));
 console.log(g.addEdge("E", "F"));
 
 console.log(g.DFSRecursive("A"));
+console.log(g.DFSIterative("A"));
